@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
+import {Link} from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,7 +84,7 @@ const Hero = () => {
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
   return (
-    <div className="relative h-dvh w-screen overflow-x-hidden">
+    <div id="home" className="relative h-dvh w-screen overflow-x-hidden">
       {loading && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
           {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
@@ -141,31 +142,33 @@ const Hero = () => {
         </div>
 
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-          G<b>A</b>MING
+          Full St<b>a</b>ck <br/> Developme<b>n</b>t
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
             <h1 className="special-font hero-heading text-blue-100">
-              redefi<b>n</b>e
+              S<b>m</b>rita P<b>a</b>ndey
             </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              Enter the Metagame Layer <br /> Unleash the Play Economy
+            <p className="mb-5 max-w-64 font-general text-blue-100">
+              Discover my capabilities <br /> Unleash my potential
             </p>
 
+            <Link to="/assign-task">
             <Button
-              id="watch-trailer"
-              title="Watch trailer"
+              id="assign-task"
+              title="Assign Task"
               leftIcon={<TiLocationArrow />}
               containerClass="bg-yellow-300 flex-center gap-1"
             />
+            </Link>
           </div>
         </div>
       </div>
 
       <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-        G<b>A</b>MING
+        Full St<b>a</b>ck <br/> Developme<b>n</b>t
       </h1>
     </div>
   );

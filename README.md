@@ -22,7 +22,7 @@
 
 1. 🤖 [Introduction](#introduction)
 2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
+3. 🔋 [Projects](#features)
 4. 🤸 [Quick Start](#quick-start)
 5. 🕸️ [Snippets (Code to Copy)](#snippets)
 6. 🔗 [Assets](#links)
@@ -55,7 +55,7 @@ If you're getting started and need assistance or face any bugs, join our active 
 - React.js
 - Tailwind CSS
 
-## <a name="features">🔋 Features</a>
+## <a name="features">🔋 Projects</a>
 
 👉 **Scroll-Based Animations**: Dynamic animations triggered by scrolling for a more engaging user experience.
 

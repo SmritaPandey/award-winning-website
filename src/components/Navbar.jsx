@@ -3,10 +3,12 @@ import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Button from "./Button";
 
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+const navItems = ["Home", "About", "Projects", "Resume", "Contact"];
 
 const NavBar = () => {
   // State for toggling audio and visual indicator
@@ -62,6 +64,18 @@ const NavBar = () => {
     });
   }, [isNavVisible]);
 
+  const navigate = useNavigate();
+  const handleNavigation = (path) => {
+    if (window.location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(path)?.scrollIntoView({ behavior: "smooth" });
+      }, 100); // Delay to ensure navigation before scrolling
+    } else {
+      document.getElementById(path)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       ref={navContainerRef}
@@ -71,33 +85,37 @@ const NavBar = () => {
         <nav className="flex size-full items-center justify-between p-4">
           {/* Logo and Product button */}
           <div className="flex items-center gap-7">
-            <img src="/img/logo.png" alt="logo" className="w-10" />
+            <Link to="/">
+            <img src="/img/logo.PNG" alt="logo" className="w-10" />
+            </Link>
 
-            <Button
-              id="product-button"
-              title="Products"
+            <Link to="/services">
+              <Button
+              id="service-button"
+              title="services"
               rightIcon={<TiLocationArrow />}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
             />
+            </Link>
           </div>
 
           {/* Navigation Links and Audio Button */}
           <div className="flex h-full items-center">
             <div className="hidden md:block">
               {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn"
-                >
-                  {item}
-                </a>
+                  <button
+                      key={index}
+                      onClick={() => handleNavigation(item.toLowerCase())}
+                      className="nav-hover-btn"
+                  >
+                    {item}
+                  </button>
               ))}
             </div>
 
             <button
-              onClick={toggleAudioIndicator}
-              className="ml-10 flex items-center space-x-0.5"
+                onClick={toggleAudioIndicator}
+                className="ml-10 flex items-center space-x-0.5"
             >
               <audio
                 ref={audioElementRef}
